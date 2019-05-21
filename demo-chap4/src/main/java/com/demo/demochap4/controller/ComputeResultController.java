@@ -25,7 +25,7 @@ public class ComputeResultController {
         Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
 
         int totalVotes = 0;
-        Map<Long, OptionCount> tempMap = new HashMap<>();
+        Map<Long, OptionCount> tempMap = new HashMap<Long, OptionCount>();
         for(Vote v : allVotes) {
             totalVotes ++;
             OptionCount optionCount = tempMap.get(v.getOption().getId());
