@@ -1,6 +1,8 @@
 package com.demo.demochap4.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -11,11 +13,13 @@ public class Poll {
     private Long id;
 
     @Column(name = "QUESTION")
+    @NotEmpty
     private String question;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "POLL_ID")
     @OrderBy
+    @Size(min = 2, max = 6)
     private Set<Option> options;
 
     public Long getId() {
@@ -26,11 +30,11 @@ public class Poll {
         this.id = id;
     }
 
-    public Set getOptions() {
+    public Set<Option> getOptions() {
         return options;
     }
 
-    public void setOptions(Set options) {
+    public void setOptions(Set<Option> options) {
         this.options = options;
     }
 
@@ -41,4 +45,5 @@ public class Poll {
     public void setQuestion(String question) {
         this.question = question;
     }
+
 }

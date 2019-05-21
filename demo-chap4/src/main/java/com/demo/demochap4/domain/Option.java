@@ -9,11 +9,12 @@ import javax.persistence.Id;
 public class Option {
     @Id
     @GeneratedValue
-    @Column(name="OPTION_ID")
+    @Column(name = "OPTION_ID")
     private Long id;
 
     @Column(name="OPTION_VALUE")
     private String value;
+
 
     public Long getId() {
         return id;
@@ -30,4 +31,5 @@ public class Option {
     public void setValue(String value) {
         this.value = value;
     }
+
 }

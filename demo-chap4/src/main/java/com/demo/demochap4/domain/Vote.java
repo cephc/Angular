@@ -28,4 +28,12 @@ public class Vote {
     public void setOption(Option option) {
         this.option = option;
     }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + getId() +
+                ", option=" + getOption() +
+                '}';
+    }
 }

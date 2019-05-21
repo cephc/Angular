@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.inject.Inject;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class VoteController {
     @Inject
     private VoteRepository voteRepository;
@@ -24,7 +24,7 @@ public class VoteController {
     }
     @RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.GET)
     public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
-        return voteRepository. findByPoll(pollId);
+        return voteRepository.findByPoll(pollId);
     }
 
 }
